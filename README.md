@@ -57,7 +57,7 @@ After creating the application, you need to [generate a signing certificate fing
 - Change the agconnect-services.json file with yours.
 - To use ML Kit in your app, you also need to enable the service in [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html).
 - Then, obtain the API key from [AppGallery Connect](https://developer.huawei.com/consumer/en/service/josp/agc/index.html). For details, please refer to [Preparations for ML Kit Service](https://developer.huawei.com/consumer/en/doc/development/hiai-Guides/add-appgallery-0000001050038080)
-- Replace the [key](https://github.com/Audible-TicTacToe/networkkit/blob/master/app/build.gradle#L51) with the one in your API key.
+- Replace the [key](https://github.com/Explore-In-HMS/Audible-TicTacToe/blob/master/app/build.gradle#L51) with the one in your API key.
 
 ## Using the Application
 
@@ -136,7 +136,7 @@ Audible Tic Tac Toe is designed with MVVM design pattern.
 - Lottie
 
 ## Installation
-[Download Audible TicTacToe Apk](https://github.com/Audible-TicTacToe/networkkit/blob/master/apk/AudibleTicTacToe.apk)
+[Download Audible TicTacToe Apk](https://github.com/Explore-In-HMS/Audible-TicTacToe/raw/master/apk/AudibleTicTacToe.apk)
 
 ## Contributors
 * [Abdurrahim Cillioglu](https://github.com/acillioglu)
