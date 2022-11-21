@@ -4,15 +4,15 @@
 
 Standard Tic Tac Toe is a paper-and-pencil game for two players who take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. 
 
-**Audible Tic Tac Toe** is a mobile game that lets players play the game uninterruptedly without having to touch or hold the device ever.
+**Audible Tic Tac Toe** is a mobile game that lets players play the game with their voice commands uninterruptedly without having to touch or hold the device ever.
 
 
 ## Introduction
 
 Features of Audible Tic Tac Toe:
-1.	It is a two player games, challenge your friends and save paper and ink.
-2.  Players can control their actions through vocal prompts.
-3.  The game keeps the listening feature active until you give a valid command.
+1.	It is a two player game, challenge your friends and save paper and ink.
+2. Players can control their actions through vocal prompts.
+3. The game keeps the listening feature active until you give a valid command.
 4.	Players can listen to the game guide with audio.
 5.	Users can review the moves they made on the end-game screen.
 
@@ -63,15 +63,15 @@ After creating the application, you need to [generate a signing certificate fing
 
 Upon completing the essential parts of the code, connect your mobile device to the PC and enable the USB debugging mode. In the Android Studio window, click the icon to run the project you have created in Android Studio to generate an APK. Then install the APK on the mobile device.
 
-1.  Before you run the app, make sure that you have a working internet connection.
+1. Before you run the app, make sure that you have a working internet connection.
 2.	Then, open the app upon installing it on your device.
 3.	The application will ask you for permission to record audio. Please allow it to use the app with voice commands.
-3.  You see a Welcome Screen that contains the "Start Game" button and, the "How to Play" button.
+3. You see a Welcome Screen that contains the "Start Game" button and, the "How to Play" button.
 4.	To navigate to the "How to Play Screen", just say "How to Play".
 5.	After navigating to the "How to Player Screen", you can read or listen to the guide. You can also go back to the previous screen by saying "Back".
-6.  When you say "Start Game" on the Welcome Screen, you will be taken to Game Screen. Now, you can start playing.
-7.  The first player is "Player Black". You can make your move by saying one of the numbers on the playing field. For example "Eight"
-8.  After saying the move, it will be marked on the grid. Then, "Player Red" can make his/her move by saying one of the free numbers on the playing field.
+6. When you say "Start Game" on the Welcome Screen, you will be taken to Game Screen. Now, you can start playing.
+7. The first player is "Player Black". You can make your move by saying one of the numbers on the playing field. For example "Eight"
+8. After saying the move, it will be marked on the grid. Then, "Player Red" can make his/her move by saying one of the free numbers on the playing field.
 9.	The player who places a required amount of symbols in a row with respective marks in a horizontal, vertical, or diagonal row, wins the game.
 10.	After the game is over, the game will take you to the Results Screen. 
 11.	On the Result Screen, you can review your moves and say "Play again" to start a new game.
