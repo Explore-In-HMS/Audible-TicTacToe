@@ -23,9 +23,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.hms.tictactoe.base.BaseViewModel
 import com.hms.tictactoe.data.model.GameAreaStatus
+import com.hms.tictactoe.data.model.GameStatus
 import com.hms.tictactoe.data.model.Player
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+
 /**
  * ViewModel class for Game Fragment
  */
@@ -60,6 +62,49 @@ class GameViewModel @Inject constructor() : BaseViewModel() {
 
     fun setWhosePlayer(player: Player) {
         _whoseTurn.value = player
+    }
+
+    // Checks who wins the game
+    fun checkGameStatus(
+        completedMove: Int
+    ): GameStatus {
+        return if (gameArea[0] == GameAreaStatus.PLAYED_X && gameArea[1] == GameAreaStatus.PLAYED_X && gameArea[2] == GameAreaStatus.PLAYED_X) {
+            GameStatus.WINNER_BLACK
+        } else if (gameArea[0] == GameAreaStatus.PLAYED_O && gameArea[1] == GameAreaStatus.PLAYED_O && gameArea[2] == GameAreaStatus.PLAYED_O) {
+            GameStatus.WINNER_RED
+        } else if (gameArea[0] == GameAreaStatus.PLAYED_X && gameArea[3] == GameAreaStatus.PLAYED_X && gameArea[6] == GameAreaStatus.PLAYED_X) {
+            GameStatus.WINNER_BLACK
+        } else if (gameArea[0] == GameAreaStatus.PLAYED_O && gameArea[3] == GameAreaStatus.PLAYED_O && gameArea[6] == GameAreaStatus.PLAYED_O) {
+            GameStatus.WINNER_RED
+        } else if (gameArea[0] == GameAreaStatus.PLAYED_X && gameArea[4] == GameAreaStatus.PLAYED_X && gameArea[8] == GameAreaStatus.PLAYED_X) {
+            GameStatus.WINNER_BLACK
+        } else if (gameArea[0] == GameAreaStatus.PLAYED_O && gameArea[4] == GameAreaStatus.PLAYED_O && gameArea[8] == GameAreaStatus.PLAYED_O) {
+            GameStatus.WINNER_RED
+        } else if (gameArea[1] == GameAreaStatus.PLAYED_X && gameArea[4] == GameAreaStatus.PLAYED_X && gameArea[7] == GameAreaStatus.PLAYED_X) {
+            GameStatus.WINNER_BLACK
+        } else if (gameArea[1] == GameAreaStatus.PLAYED_O && gameArea[4] == GameAreaStatus.PLAYED_O && gameArea[7] == GameAreaStatus.PLAYED_O) {
+            GameStatus.WINNER_RED
+        } else if (gameArea[2] == GameAreaStatus.PLAYED_X && gameArea[5] == GameAreaStatus.PLAYED_X && gameArea[8] == GameAreaStatus.PLAYED_X) {
+            GameStatus.WINNER_BLACK
+        } else if (gameArea[2] == GameAreaStatus.PLAYED_O && gameArea[5] == GameAreaStatus.PLAYED_O && gameArea[8] == GameAreaStatus.PLAYED_O) {
+            GameStatus.WINNER_RED
+        } else if (gameArea[2] == GameAreaStatus.PLAYED_X && gameArea[4] == GameAreaStatus.PLAYED_X && gameArea[6] == GameAreaStatus.PLAYED_X) {
+            GameStatus.WINNER_BLACK
+        } else if (gameArea[2] == GameAreaStatus.PLAYED_O && gameArea[4] == GameAreaStatus.PLAYED_O && gameArea[6] == GameAreaStatus.PLAYED_O) {
+            GameStatus.WINNER_RED
+        } else if (gameArea[3] == GameAreaStatus.PLAYED_X && gameArea[4] == GameAreaStatus.PLAYED_X && gameArea[5] == GameAreaStatus.PLAYED_X) {
+            GameStatus.WINNER_BLACK
+        } else if (gameArea[3] == GameAreaStatus.PLAYED_O && gameArea[4] == GameAreaStatus.PLAYED_O && gameArea[5] == GameAreaStatus.PLAYED_O) {
+            GameStatus.WINNER_RED
+        } else if (gameArea[6] == GameAreaStatus.PLAYED_X && gameArea[7] == GameAreaStatus.PLAYED_X && gameArea[8] == GameAreaStatus.PLAYED_X) {
+            GameStatus.WINNER_BLACK
+        } else if (gameArea[6] == GameAreaStatus.PLAYED_O && gameArea[7] == GameAreaStatus.PLAYED_O && gameArea[8] == GameAreaStatus.PLAYED_O) {
+            GameStatus.WINNER_RED
+        } else if (completedMove == 9) {
+            GameStatus.DRAW
+        } else {
+            GameStatus.CONTINUE
+        }
     }
 
 }

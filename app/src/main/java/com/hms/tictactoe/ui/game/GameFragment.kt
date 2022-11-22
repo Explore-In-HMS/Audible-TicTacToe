@@ -135,6 +135,7 @@ class GameFragment : BaseFragment<GameViewModel, FragmentGameBinding>() {
             }
         }
     }
+
     // Start listener for asr
     private fun startListening() {
         asrHelper.listener = onSpeechEventListener
@@ -158,49 +159,6 @@ class GameFragment : BaseFragment<GameViewModel, FragmentGameBinding>() {
         override fun onError(errorMessage: String) {
             viewModel.setListeningVisibility(false)
             startListening()
-        }
-    }
-
-    // Checks who wins the game
-    private fun checkGameStatus(
-        completedMove: Int
-    ): GameStatus {
-        return if (viewModel.gameArea[0] == GameAreaStatus.PLAYED_X && viewModel.gameArea[1] == GameAreaStatus.PLAYED_X && viewModel.gameArea[2] == GameAreaStatus.PLAYED_X) {
-            GameStatus.WINNER_BLACK
-        } else if (viewModel.gameArea[0] == GameAreaStatus.PLAYED_O && viewModel.gameArea[1] == GameAreaStatus.PLAYED_O && viewModel.gameArea[2] == GameAreaStatus.PLAYED_O) {
-            GameStatus.WINNER_RED
-        } else if (viewModel.gameArea[0] == GameAreaStatus.PLAYED_X && viewModel.gameArea[3] == GameAreaStatus.PLAYED_X && viewModel.gameArea[6] == GameAreaStatus.PLAYED_X) {
-            GameStatus.WINNER_BLACK
-        } else if (viewModel.gameArea[0] == GameAreaStatus.PLAYED_O && viewModel.gameArea[3] == GameAreaStatus.PLAYED_O && viewModel.gameArea[6] == GameAreaStatus.PLAYED_O) {
-            GameStatus.WINNER_RED
-        } else if (viewModel.gameArea[0] == GameAreaStatus.PLAYED_X && viewModel.gameArea[4] == GameAreaStatus.PLAYED_X && viewModel.gameArea[8] == GameAreaStatus.PLAYED_X) {
-            GameStatus.WINNER_BLACK
-        } else if (viewModel.gameArea[0] == GameAreaStatus.PLAYED_O && viewModel.gameArea[4] == GameAreaStatus.PLAYED_O && viewModel.gameArea[8] == GameAreaStatus.PLAYED_O) {
-            GameStatus.WINNER_RED
-        } else if (viewModel.gameArea[1] == GameAreaStatus.PLAYED_X && viewModel.gameArea[4] == GameAreaStatus.PLAYED_X && viewModel.gameArea[7] == GameAreaStatus.PLAYED_X) {
-            GameStatus.WINNER_BLACK
-        } else if (viewModel.gameArea[1] == GameAreaStatus.PLAYED_O && viewModel.gameArea[4] == GameAreaStatus.PLAYED_O && viewModel.gameArea[7] == GameAreaStatus.PLAYED_O) {
-            GameStatus.WINNER_RED
-        } else if (viewModel.gameArea[2] == GameAreaStatus.PLAYED_X && viewModel.gameArea[5] == GameAreaStatus.PLAYED_X && viewModel.gameArea[8] == GameAreaStatus.PLAYED_X) {
-            GameStatus.WINNER_BLACK
-        } else if (viewModel.gameArea[2] == GameAreaStatus.PLAYED_O && viewModel.gameArea[5] == GameAreaStatus.PLAYED_O && viewModel.gameArea[8] == GameAreaStatus.PLAYED_O) {
-            GameStatus.WINNER_RED
-        } else if (viewModel.gameArea[2] == GameAreaStatus.PLAYED_X && viewModel.gameArea[4] == GameAreaStatus.PLAYED_X && viewModel.gameArea[6] == GameAreaStatus.PLAYED_X) {
-            GameStatus.WINNER_BLACK
-        } else if (viewModel.gameArea[2] == GameAreaStatus.PLAYED_O && viewModel.gameArea[4] == GameAreaStatus.PLAYED_O && viewModel.gameArea[6] == GameAreaStatus.PLAYED_O) {
-            GameStatus.WINNER_RED
-        } else if (viewModel.gameArea[3] == GameAreaStatus.PLAYED_X && viewModel.gameArea[4] == GameAreaStatus.PLAYED_X && viewModel.gameArea[5] == GameAreaStatus.PLAYED_X) {
-            GameStatus.WINNER_BLACK
-        } else if (viewModel.gameArea[3] == GameAreaStatus.PLAYED_O && viewModel.gameArea[4] == GameAreaStatus.PLAYED_O && viewModel.gameArea[5] == GameAreaStatus.PLAYED_O) {
-            GameStatus.WINNER_RED
-        } else if (viewModel.gameArea[6] == GameAreaStatus.PLAYED_X && viewModel.gameArea[7] == GameAreaStatus.PLAYED_X && viewModel.gameArea[8] == GameAreaStatus.PLAYED_X) {
-            GameStatus.WINNER_BLACK
-        } else if (viewModel.gameArea[6] == GameAreaStatus.PLAYED_O && viewModel.gameArea[7] == GameAreaStatus.PLAYED_O && viewModel.gameArea[8] == GameAreaStatus.PLAYED_O) {
-            GameStatus.WINNER_RED
-        } else if (completedMove == 9) {
-            GameStatus.DRAW
-        } else {
-            GameStatus.CONTINUE
         }
     }
 
@@ -257,7 +215,7 @@ class GameFragment : BaseFragment<GameViewModel, FragmentGameBinding>() {
 
     //checks if the game is over
     private fun checkGameIsFinished() {
-        when (checkGameStatus(viewModel.completedMove)) {
+        when (viewModel.checkGameStatus(viewModel.completedMove)) {
             GameStatus.WINNER_BLACK -> {
                 val gameResult = GameResult(false, Player.PLAYER_BLACK, viewModel.gameArea)
                 navigateToResultScreen(gameResult)
